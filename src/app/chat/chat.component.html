@@ -14,7 +14,7 @@
         </ul>
     </div>
 
-    <div class="card-body" *ngIf="conectado">
+    <div #scrollChat [scrollTop]="scrollChat.scrollHeight" class="card-body" *ngIf="conectado">
         <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-light" *ngFor="let mensaje of mensajes">
                 <span [ngStyle]="{'color': mensaje.color}" *ngIf="mensaje.tipo=='NUEVO_USUARIO'">{{mensaje.fecha | date:'shortTime'}} 😁 {{mensaje.texto}}</span>
@@ -26,10 +26,11 @@
     <div class="card-footer" *ngIf="conectado">
         <form class="form-inline">
             <div class="form-group mx-3">
-                <input type="text" [(ngModel)]="mensaje.texto" class="form-control" name="texto" placeholder="Escribe un mensaje...">
+                <input type="text" [(ngModel)]="mensaje.texto" class="form-control" name="texto" placeholder="Escribe un mensaje..." (keyup)="escribiendoEvento()">
             </div>
             <button class="btn btn-primary" type="submit" (click)="enviarMensaje()">ENVIAR</button>
         </form>
+        <div mr-10 mx-20>{{ escribiendo }}</div>
     </div>
 
 </div>
