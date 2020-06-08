@@ -2,8 +2,11 @@
 
     <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item mr-2" *ngIf="!conectado">
+                <input type="text" [(ngModel)]="mensaje.username" class="form-control" name="username" placeholder="Usuario">
+            </li>
             <li class="nav-item mr-2">
-                <button class="btn btn-success" type="button" (click)="conectar()" *ngIf="!conectado">CONECTAR</button>
+                <button class="btn btn-success" type="button" (click)="conectar()" *ngIf="!conectado" [disabled]="!mensaje.username">CONECTAR</button>
             </li>
             <li class="nav-item">
                 <button class="btn btn-warning" type="button" (click)="desconectar()" *ngIf="conectado">CERRAR CHAT</button>
@@ -14,7 +17,8 @@
     <div class="card-body" *ngIf="conectado">
         <ul class="list-group list-group-flush">
             <li class="list-group-item list-group-item-light" *ngFor="let mensaje of mensajes">
-                {{mensaje.fecha | date:'shortTime'}} : {{mensaje.texto}}
+                <span *ngIf="mensaje.tipo=='NUEVO_USUARIO'">{{mensaje.fecha | date:'shortTime'}} 😁 {{mensaje.texto}}</span>
+                <span *ngIf="mensaje.tipo=='MENSAJE'">{{mensaje.fecha | date:'shortTime'}} {{mensaje.username}} dice<br> {{mensaje.texto}}</span>
             </li>
         </ul>
     </div>

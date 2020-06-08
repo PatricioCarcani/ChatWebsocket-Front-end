@@ -26,6 +26,7 @@ export class ChatComponent implements OnInit {
     this.client.onConnect = (frame) => {
       console.log('Conectados: ' + this.client.connected + ' : ' + frame);
       this.conectado=true;
+      
       //suscribirse y escuchar a evento chat
       this.client.subscribe('/chat/mensaje', e => {
         let mensaje: Mensaje = JSON.parse(e.body) as Mensaje;
@@ -33,6 +34,10 @@ export class ChatComponent implements OnInit {
         this.mensajes.push(mensaje);
         console.log(mensaje);
       });
+
+      this.mensaje.tipo='NUEVO_USUARIO';
+      this.client.publish({destination: '/app/mensaje', body: JSON.stringify(this.mensaje)});
+      
     }
 
     this.client.onDisconnect = (frame) => {
@@ -51,6 +56,7 @@ export class ChatComponent implements OnInit {
   }
 
   enviarMensaje(): void {
+    this.mensaje.tipo='MENSAJE';
     // message mapping
     this.client.publish({destination: '/app/mensaje', body: JSON.stringify(this.mensaje)});
     // texto reiniciado
