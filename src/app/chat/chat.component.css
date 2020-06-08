@@ -1,0 +1,5 @@
+
+.card-body {
+    overflow-y:scroll;
+    height:420px;
+}
