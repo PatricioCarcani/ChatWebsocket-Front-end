@@ -2,6 +2,8 @@
 
 Sistema de Chat en tiempo real con WebSocket y protocolo STOMP.
 
+![Dos chats](https://karkanis.com.ar/github/ChatWebsocket.jpg)
+
 
 ## Front-end
 
