@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #304D73 !important;
+}
+
+header.jumbotron {
+    background-color: #F2EFE9;
+}
+
+header.jumbotron h1 {
+    font-family: 'Dancing Script', cursive;
+    color: #304D73;
+}

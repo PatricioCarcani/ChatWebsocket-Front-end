@@ -92,7 +92,7 @@ export class ChatComponent implements OnInit {
     this.mensaje.texto = '';
   }
 
-  escribiendoEvento():void {
+  escribiendoEvento(): void {
     this.client.publish({ destination:'/app/escribiendo', body: this.mensaje.username })
   }
 
