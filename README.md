@@ -1,8 +1,8 @@
 # Chat Websocket - Front-end
 
-Sistema de Chat en tiempo real con WebSocket y protocolo STOMP.
+Sistema de Chat en tiempo real con WebSocket y protocolo STOMP. Realizado en Angular 9 y Java 8.
 
-![Dos chats](https://karkanis.com.ar/github/ChatWebsocket.jpg)
+![Dos chats](https://karkanis.com.ar/github/ChatWebsocket.png)
 
 
 ## Front-end
