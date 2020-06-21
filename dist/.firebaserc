@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "websocket-chat-webapp",
+    "chat": "websocket-chat-webapp"
+  }
+}
